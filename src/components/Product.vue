@@ -6,7 +6,7 @@
      <ul>
         <li v-for="(ing, i) in ingredients" :key="i">{{ing}}</li>
      </ul>
-  <div>{{expireDate}}</div>
+  <!-- <div>{{expireDate}}</div> -->
   </div>
 </template>
 
