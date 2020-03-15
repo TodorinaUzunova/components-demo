@@ -1,8 +1,17 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <ProductList :products="products" :title="title" @onChangeTitle="title=$event"/>
+    <button @click="selectedComponent='HelloWorld'">Render Hello World</button>
+    <button @click="selectedComponent='ProductList'">Render ProductList</button>
+    <keep-alive>
+    <component :is="selectedComponent"  msg="Welcome to Your Vue.js App"
+    :products="products"
+    :title="title"
+    @onChangeTitle="title=$event">
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ProductList :products="products" :title="title" @onChangeTitle="title=$event"/> -->
+    </component>
+    </keep-alive>
   <!-- <Counter :counter="counter"/>
   <Counter :counter="counter"/>
   <Counter :counter="counter"/> -->
@@ -31,6 +40,7 @@ export default {
           },
       ],
       title:'This is my product list!',
+      selectedComponent:'HelloWorld',
     }},
     watch:{
       title(newValue, oldValue){
