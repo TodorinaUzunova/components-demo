@@ -1,33 +1,31 @@
 <template>
   <div class="hello">
       <!-- <input @input="changeType"/> -->
-    <h1>Type: {{mealType}}</h1>
-    <h1>Price:{{price}}</h1>
-     <ul>
-        <li v-for="(ing, i) in ingredients" :key="i">{{ing}}</li>
-     </ul>
-  <div>{{expireDate}}</div>
+  <slot name="type"></slot>
+  <slot name="price"></slot>
+  <slot name="ingredients"></slot>
+    <!-- <div>{{expireDate}}</div> -->
   </div>
 </template>
 
 <script>
 export default {
   name: 'Product',
-  props:{
-      mealType:{type:String,
-       required:true},
-      price:Number,
-      ingredients:{
-          type:Array,
-          validator:(arr)=>{
-              return arr.every(i=> typeof i==="string")&& arr.every((i)=>i[0].toUpperCase(i[0]));
-          }
-          },
-      expireDate:{
-          type:Date,
-          default: ()=> new Date(),
-      }
-    },
+//   props:{
+//       mealType:{type:String,
+//        required:true},
+//       price:Number,
+//       ingredients:{
+//           type:Array,
+//           validator:(arr)=>{
+//               return arr.every(i=> typeof i==="string")&& arr.every((i)=>i[0].toUpperCase(i[0]));
+//           }
+//           },
+//       expireDate:{
+//           type:Date,
+//           default: ()=> new Date(),
+//       }
+//     },
     methods:{
 //   changeType(e){
 //      const value=e.target.value;  !!! ne se prawi, props are immutable
