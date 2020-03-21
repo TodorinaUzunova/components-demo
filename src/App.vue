@@ -12,6 +12,8 @@
     <ProductList :products="products" :title="title" @onChangeTitle="title=$event"/> -->
     </component>
     </keep-alive>
+    <button  @click="selectedComponent='Register1'"></button>
+    <button @click="selectedComponent='Register'"></button>  
   <!-- <Counter :counter="counter"/>
   <Counter :counter="counter"/>
   <Counter :counter="counter"/> -->
@@ -19,9 +21,11 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-//import Counter from './components/Counter.vue'
-import ProductList from './components/ProductList.vue'
+import HelloWorld from './components/HelloWorld.vue';
+//import Counter from './components/Counter.vue';
+import ProductList from './components/ProductList.vue';
+import Register1 from './components/Register1.vue';
+import Register from './components/Register.vue';
 
 export default {
   name: 'App',
@@ -51,12 +55,15 @@ export default {
   components: {
     HelloWorld,
      //Counter,
-     ProductList
+     ProductList,
+     Register1,
+     Register
   }
 }
 </script>
 
 <style>
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
